@@ -1,22 +1,20 @@
+'use strict';
 window.fireballSize = 22;
-window.wizardSpeed = 3;
 window.wizardWidth = 70;
+window.wizardSpeed = 3;
 
-window.getFireballSpeed = function (isWindFromLeft) {
-  if (isWindFromLeft) {
-    return 5;
-  }
-  return 2;
+window.getFireballSpeed = function (movingLeft) {
+  return movingLeft ? 5 : 2;
 };
 
-window.getWizardHeight = function () {
-  return 1.337 * wizardWidth;
+window.getWizardHeight = function (width) {
+  return 1.337 * width;
 };
 
-window.getWizardX = function (gameFieldWidth) {
-  return (gameFieldWidth - wizardWidth) / 2;
+window.getWizardX = function (width) {
+  return (width - window.wizardWidth) / 2;
 };
 
-window.getWizardY = function (gameFieldHeigth) {
-  return gameFieldHeigth / 3;
+window.getWizardY = function (heigth) {
+  return heigth / 3;
 };
