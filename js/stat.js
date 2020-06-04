@@ -46,8 +46,11 @@ window.renderStatistics = function (ctx, players, times) {
     } else {
       ctx.fillStyle = getRandomColor();
     }
-    ctx.fillText(Math.round(times[i]), CLOUD_X + GAP * 5 + (DISTANCE + BAR_WIDTH) * i, CLOUD_Y + GAP * 7);
-    ctx.fillRect(CLOUD_X + DISTANCE + (DISTANCE + BAR_WIDTH) * i, CLOUD_Y + DISTANCE + BAR_WIDTH, BAR_WIDTH, BAR_HEIGHT * times[i] / maxTime);
+    var barHeight = BAR_HEIGHT * times[i] / maxTime;
+    var barX = CLOUD_X + DISTANCE + (DISTANCE + BAR_WIDTH) * i;
+    var barY = CLOUD_HEIGHT - (CLOUD_Y + GAP * 2) - barHeight;
+    ctx.fillText(Math.round(times[i]), CLOUD_X + GAP * 5 + (DISTANCE + BAR_WIDTH) * i, CLOUD_HEIGHT - (CLOUD_Y + GAP * 2) - barHeight - GAP);
+    ctx.fillRect(barX, barY + GAP, BAR_WIDTH, barHeight);
     ctx.fillText(players[i], CLOUD_X + GAP * 5 + (DISTANCE + BAR_WIDTH) * i, CLOUD_Y + DISTANCE + BAR_WIDTH + BAR_HEIGHT + GAP);
   }
 };
