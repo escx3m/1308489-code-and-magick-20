@@ -8,7 +8,6 @@ var GAP = 10;
 var BAR_HEIGHT = 150;
 var BAR_WIDTH = 40;
 var DISTANCE = 50;
-var playerTitleY = CLOUD_Y + DISTANCE + BAR_WIDTH + BAR_HEIGHT + GAP;
 
 var renderCloud = function (ctx, x, y, color) {
   ctx.fillStyle = color;
@@ -53,6 +52,7 @@ window.renderStatistics = function (ctx, players, times) {
     ctx.fillRect(barX, barY + GAP, BAR_WIDTH, barHeight);
     ctx.fillStyle = '#000';
     ctx.fillText(Math.round(times[i]), barX, CLOUD_HEIGHT - (CLOUD_Y + GAP * 2) - barHeight - GAP);
+    var playerTitleY = CLOUD_Y + DISTANCE + BAR_WIDTH + BAR_HEIGHT + GAP;
     ctx.fillText(players[i], barX, playerTitleY);
   }
 };
