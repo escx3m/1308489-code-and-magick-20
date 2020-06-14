@@ -78,8 +78,7 @@
             <input type="file" name="avatar" accept="image/png, image/jpeg">
           </div>
           <label>
-            <input type="text" name="username" minlength="2" maxlength="25" required
-            class="setup-user-name"
+            <input type="text" name="username" minlength="2" maxlength="25" required class="setup-user-name"
               value="Синий Пендальф" />
           </label>
         </div>
@@ -181,29 +180,7 @@
       <p class="setup-similar-label">Петр Петров</p>
     </div>
   </template>
-  <script>
-    var fireballSize = 22;
-
-    function getFireballSpeed(isDownwind) {
-      if (isDownwind) {
-        return 5;
-      }
-      return 2;
-    }
-
-    var wizardSpeed = 3;
-    var wizardWidth = 70;
-    var wizardHeight = 1.337 * wizardWidth;
-
-    function getWizardX(playingFieldWidth) {
-      return (playingFieldWidth - wizardWidth) / 2;
-    }
-
-    function getWizardY(playingFieldHeight) {
-      return playingFieldHeight / 3;
-    }
-
-  </script>
+  <script src="js/game-setting.js"></script>
   <script src="js/setup.js"></script>
   <script src="js/stat.js"></script>
   <script src="js/game.js"></script>
