@@ -7,13 +7,14 @@ var WIZARD_COAT = ['rgb(101, 137, 164)', 'rgb(241, 43, 107)', 'rgb(146, 100, 161
 var WIZARD_EYES = ['black', 'red', 'blue', 'yellow', 'green'];
 var WIZARD_COLORS = ['#ee4830', '#30a8ee', '#5ce6c0', '#e848d5', '#e6e848'];
 
-var setupSimilar = document.querySelector('.setup-similar');
+var userDialog = document.querySelector('.setup');
+
+var setupSimilar = userDialog.querySelector('.setup-similar');
 var similarWizardTemplate = document.querySelector('#similar-wizard-template').content.querySelector('.setup-similar-item');
-var similarListElement = document.querySelector('.setup-similar-list');
+var similarListElement = userDialog.querySelector('.setup-similar-list');
 
 var fragment = document.createDocumentFragment();
 
-var userDialog = document.querySelector('.setup');
 var setupUserName = userDialog.querySelector('.setup-user-name');
 
 var openSetup = document.querySelector('.setup-open');
@@ -97,7 +98,7 @@ function closeSetupModal() {
 }
 
 function setCoatColor() {
-  var coatColorInput = document.querySelector('.setup-wizard-appearance');
+  var coatColorInput = document.querySelector('.setup-wizard-appearance input[name=coat-color]');
   var coatColor = getRandomElement(WIZARD_COAT);
 
   wizardCoat.style.fill = coatColor;
@@ -105,15 +106,15 @@ function setCoatColor() {
 }
 
 function setEyesColor() {
-  var eyesColorInput = document.querySelector('.setup-wizard-appearance');
-  var eyesColor = getRandomElement(WIZARD_COAT);
+  var eyesColorInput = document.querySelector('.setup-wizard-appearance input[name=eyes-color]');
+  var eyesColor = getRandomElement(WIZARD_EYES);
 
   wizardEyes.style.fill = eyesColor;
   eyesColorInput.value = eyesColor;
 }
 
 function setFireballColor() {
-  var fireballColorInput = wizardFireball.querySelector('.setup-fireball-wrap');
+  var fireballColorInput = wizardFireball.querySelector('.setup-fireball-wrap input[name=fireball-color]');
   var fireballColor = getRandomElement(WIZARD_COLORS);
 
   wizardFireball.style.background = fireballColor;
@@ -129,5 +130,3 @@ openSetup.addEventListener('keydown', function (evt) {
     openSetupModal();
   }
 });
-
-userDialog.querySelector('.setup-similar').classList.remove('hidden');
